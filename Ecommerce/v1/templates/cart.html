@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %} Ecommerce{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+{% block login %}Logout{% endblock %}
+{% block body %}
+
+<div class="banner">
+    <h1>Cart</h1>
+</div>
+<span class="success">
+    {% if messages %}
+    {% for message in messages %}
+        
+            {{ message }}
+       
+    {% endfor %}
+{% endif %}
+</span>
+<div class="container table2">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="mt-4 table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cart_item in cart_items %}
+                    <tr class="mt-4">
+                        <td class = "fix"><img src="{{cart_item.image.url}}" alt="Product Image"></td>
+                        <td>{{cart_item.name}}</td>
+                        <td>${{cart_item.price}}</td>
+                        <td><i data-id = "{{cart_item.id}}"class="del fas fa-times"></i></td>
+                    </tr>
+                  {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="cartWrapper">
+    
+    <div class="cart-total">
+        <h1>Cart Total</h1>
+        <div class="subtotal">
+            <span>Subtotal:</span>
+            <span id = "subtotal"></span>
+        </div>
+        <div class="delivery">
+            <span>Delivery</span>
+            <span>$3.00</span>
+          
+        </div>
+        <div class="total">
+            <span>Total</span>
+            <span id = "total"></span>
+        </div>
+        <button class="proceed-checkout" id = "confirm">Checkout</button>
+    </div>
+</div>
+<div id="confirmPopup" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h2>Confirm Purchase</h2>
+        <p>Total Amount: <span id="popupTotal"></span></p>
+        <button id="confirmPurchase">Confirm</button>
+    </div>
+</div>
+
+
+{% endblock %}
+{% block js %}
+<script src = "{% static 'js/cartNumber.js' %}"></script>
+<script src = "{% static 'js/cart.js' %}"></script>
+{% endblock %}
