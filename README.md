@@ -21,4 +21,4 @@ CodeAlpha_Simple-E-commerce-Store is a web application developed for a local sto
     python manage.py migrate
 4. Run the development server  
     ```sh
-    python manage.py runserer
+    python manage.py runserver
