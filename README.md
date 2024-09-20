@@ -15,7 +15,7 @@ CodeAlpha_Simple-E-commerce-Store is a web application developed for a local sto
    git clone https://github.com/nathnael1/CodeAlpha_Simple-E-commerce-Storegit
 2. Navigate to the project directory  
     ```sh
-    cd CodeAlpha_Simple-E-commerce-Store
+    cd CodeAlpha_Simple-E-commerce-Store/Ecommerce
 3. Apply the migrations  
     ```sh
     python manage.py migrate
